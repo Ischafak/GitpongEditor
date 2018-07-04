@@ -13,5 +13,9 @@ namespace WebApplication6.Controllers
         {
             return View();
         }
+        public ActionResult Xslt()
+        {
+
+        }
     }
 }
