@@ -1,33 +1,27 @@
 ﻿
 @{
 
-    Layout = "~/Views/_LayoutPage1.cshtml";
+	Layout = "~/Views/_LayoutPage1.cshtml";
 }
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
 
-    <link rel=stylesheet href="~/lib/codemirror.css">
-    <link rel=stylesheet href="~/doc/docs.css">
-    <script src="~/lib/codemirror.js"></script>
-    <script src="~/mode/xml/xml.js"></script>
-    <script src="~/mode/javascript/javascript.js"></script>
-    <script src="~/mode/css/css.js"></script>
-    <script src="~/mode/htmlmixed/htmlmixed.js"></script>
-    <script src="~/addon/edit/matchbrackets.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="doc/activebookmark.js"></script>
-    <link href="~/lib/Stil2.css" rel="stylesheet" />
 
-</head>
-<body>
-    <div id="codeeditor"></div>
-    
-    <script>
-        var editor = CodeMirror(document.getElementById("codeeditor"));
-    </script>
 
-</body>
-</html>
+
+
+
+
+<div class=wrap id="wrap1" style="width:47%; position:fixed; z-index:2;">
+	<div class=border>
+		<textarea id="code"></textarea>
+	</div>
+</div>
+
+
+
+<div class=wrap id="wrap2" style="width:47%; position:fixed;z-index:-1;">
+	<div class=border>
+		<textarea id="code2"></textarea>
+	</div>
+</div>
+
 

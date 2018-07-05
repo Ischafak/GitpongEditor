@@ -108,8 +108,10 @@
     <Content Include="doc\yinyang.png" />
     <Content Include="Global.asax" />
     <Content Include="jquery-3.3.1.min.js" />
+    <Content Include="lib\bootstrap-filestyle.min.js" />
     <Content Include="lib\codemirror.css" />
     <Content Include="lib\codemirror.js" />
+    <Content Include="lib\qqqq.xml" />
     <Content Include="mode\apl\apl.js" />
     <Content Include="mode\apl\index.html" />
     <Content Include="mode\asciiarmor\asciiarmor.js" />
@@ -409,6 +411,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Xslt.cshtml" />
+    <Content Include="Views\Home\Xml.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

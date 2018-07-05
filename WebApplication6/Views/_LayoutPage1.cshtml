@@ -2,46 +2,168 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        .block {
-            display: block;
-            margin: 20px;
-            margin-bottom:1px;
-            border: 2px dashed 2px;
-            padding: 10px;
-        }
-    </style>
+	<title>@ViewBag.Title</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="~/lib/bootstrap-filestyle.min.js"></script>
+
+	<link rel=stylesheet href="~/doc/docs.css">
+
+	<script src="~/lib/codemirror.js"></script>
+	<script src="~/mode/xml/xml.js"></script>
+	<script src="~/mode/javascript/javascript.js"></script>
+	<script src="~/mode/css/css.js"></script>
+	<script src="~/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="~/addon/edit/matchbrackets.js"></script>
+	<script src="doc/activebookmark.js"></script>
+	<link href="~/lib/codemirror.css" rel="stylesheet" />
+
+
+	<style>
+		.block {
+			display: block;
+			margin: 0px 10px;
+			margin-bottom: 1px;
+			border: 2px dashed 2px;
+			padding: 10px;
+		}
+
+		.navbar {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.wrap {
+			position: relative;
+			height: 90%;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		.border {
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			border: 1px solid #999;
+			position: relative;
+			height: 100%;
+			padding: 1px;
+		}
+
+
+
+		.CodeMirror {
+			height: 100%;
+			background: white;
+		}
+
+
+		button {
+			background-color: #222222;
+			border: none;
+			color: #9d9d9d;
+			padding: 14px;
+			font-weight: bold;
+		}
+
+			button:hover {
+				color: white;
+			}
+
+		#abc .btn {
+			color: #9d9d9d;
+			padding: 9px;
+			margin-top: 5px;
+		}
+
+			#abc .btn:hover {
+				color: white;
+			}
+	</style>
+
 </head>
 <body>
-    <div class="block">
-        <nav class="navbar navbar-inverse" >
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">XML</a></li>
-                    <li><a href="#">XSLT</a></li>
-                    <li><a href="#">Yeni Sayfa</a></li>
-                    <li><a href="#">Ekle</a></li>
-                    <li><a href="#">Kaydet</a></li>
-                </ul>
-                <form class="navbar-form navbar-left" action="/action_page.php">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Ara</button>
-                </form>
-                <div style="float:right;margin-right:330px;color:azure;"><h2>E-FATURA</h2></div>
-            </div>
-        </nav>
-    </div>
-    <div style="margin-left:25px;">
-        @RenderBody()
-    </div>
+	<div class="block">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+
+				<ul class="nav navbar-nav">
+					<li>
+						@using (Html.BeginForm("Xml", "Home", FormMethod.Post, null))
+						{
+							<button name="Xml" id="Xml" class="navbar-left">Xml</button>
+						}
+						</li>
+					<li>
+						<button name="Xslt" id="Xslt" class="navbar-left">Xslt</button>
+					</li>						
+					<li><a href="#">Yeni Sayfa</a></li>
+					<li id="abc">
+						<input type="file" class="filestyle" id="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Your label here." style="color:white;">
+					</li>
+					<li><a href="#">Kaydet</a></li>
+				</ul>
+
+				<form class="navbar-form navbar-left" action="/action_page.php">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search" name="search">
+					</div>
+					<button type="submit" class="btn btn-default">Ara</button>
+				</form>
+
+
+				<div style="float:right;margin-right:330px;color:azure;"><h2>E-FATURA</h2></div>
+			</div>
+		</nav>
+	</div>
+
+
+	@RenderBody()
+
+
+	<script>
+		(function () {
+			// Create a CM instance
+			var ed = CodeMirror.fromTextArea(document.getElementById("code"), {
+				lineNumbers: true,
+			});
+
+		})();
+	</script>
+	<script>
+		(function () {
+			// Create a CM instance
+			var ed2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+				lineNumbers: true,
+			});
+
+		})();
+	</script>
+	<script>
+
+		$(document).ready(function () {
+			$("#Xml").click(function () {
+
+				document.getElementById("wrap1").style.visibility = "visible"
+				document.getElementById("wrap1").style.zIndex = "1"
+				document.getElementById("wrap2").style.visibility = "hidden"
+				document.getElementById("wrap2").style.zIndex = "0"
+
+			});
+			$("#Xslt").click(function () {
+
+				document.getElementById("wrap1").style.visibility = "hidden"
+				document.getElementById("wrap1").style.zIndex = "0"
+				document.getElementById("wrap2").style.visibility = "visible"
+				document.getElementById("wrap2").style.zIndex = "1"
+			});
+
+
+		});
+
+	</script>
 </body>
 </html>
