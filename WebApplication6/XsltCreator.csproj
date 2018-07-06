@@ -108,9 +108,11 @@
     <Content Include="doc\yinyang.png" />
     <Content Include="Global.asax" />
     <Content Include="jquery-3.3.1.min.js" />
+    <Content Include="lib\ab.xml" />
     <Content Include="lib\bootstrap-filestyle.min.js" />
     <Content Include="lib\codemirror.css" />
     <Content Include="lib\codemirror.js" />
+    <Content Include="lib\fatura.xslt" />
     <Content Include="lib\qqqq.xml" />
     <Content Include="mode\apl\apl.js" />
     <Content Include="mode\apl\index.html" />
@@ -400,6 +402,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -412,6 +415,8 @@
     <Content Include="Views\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Xslt.cshtml" />
     <Content Include="Views\Home\Xml.cshtml" />
+    <Content Include="Views\Home\Deneme.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

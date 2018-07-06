@@ -1,0 +1,39 @@
+﻿
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+
+</head>
+<body>
+	<div>
+		@{
+			var gelen_link = ViewBag.cikti;
+			var degis = gelen_link.Replace("\\", "\\\\");
+		}
+
+
+
+
+
+	</div>
+
+	<iframe width="500" height="500" src="https://www.youtube.com/watch?v=LQvW_9zSXIg"></iframe>
+
+	<iframe src="@degis">
+ 
+	</iframe>
+
+	<textarea id="myTextarea">
+342 Alvin Road
+Ducksburg</textarea>
+	<button name="New" id="New" onclick="myFunction()" type="button" class="navbar-left">New</button>
+
+	<script>
+		function myFunction() {
+			document.getElementById("myTextarea").value = "Fifth Avenue, New York City";
+		}
+	</script>
+</body>
+</html>

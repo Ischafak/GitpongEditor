@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Xml;
 using System.Xml.Xsl;
-using System.Xml.XPath;
-using System.IO;
 
 namespace WebApplication6.Controllers
 {
-    public class HomeController : Controller
+    public class TestController : Controller
     {
-        // GET: Home
+        // GET: Test
         public ActionResult Index()
         {
-           
 
             string outfile = Path.GetTempFileName().Replace(".tmp", ".html");
             XslCompiledTransform transform = new XslCompiledTransform();
@@ -26,18 +23,5 @@ namespace WebApplication6.Controllers
             ViewBag.cikti = outfile;
             return View();
         }
-        public ActionResult Xslt()
-        {
-            return View();
-        }
-
-        public ActionResult Xml()
-        {
-
-            return View();
-
-        }
-        
-
     }
 }

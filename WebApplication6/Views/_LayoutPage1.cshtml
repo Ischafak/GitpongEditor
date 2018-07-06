@@ -41,6 +41,7 @@
 			height: 90%;
 			padding: 20px;
 			box-sizing: border-box;
+			overflow:hidden;
 		}
 
 		.border {
@@ -51,6 +52,7 @@
 			position: relative;
 			height: 100%;
 			padding: 1px;
+			overflow: hidden;
 		}
 
 
@@ -58,6 +60,7 @@
 		.CodeMirror {
 			height: 100%;
 			background: white;
+			overflow: hidden;
 		}
 
 
@@ -92,15 +95,16 @@
 
 				<ul class="nav navbar-nav">
 					<li>
-						@using (Html.BeginForm("Xml", "Home", FormMethod.Post, null))
-						{
-							<button name="Xml" id="Xml" class="navbar-left">Xml</button>
-						}
-						</li>
+
+						<button name="Xml" id="Xml" class="navbar-left">Xml</button>
+
+					</li>
 					<li>
 						<button name="Xslt" id="Xslt" class="navbar-left">Xslt</button>
-					</li>						
-					<li><a href="#">Yeni Sayfa</a></li>
+					</li>
+					<li>
+						<button name="New" id="New" onclick="myFunction()" type="button" class="navbar-left">New</button>
+					</li>
 					<li id="abc">
 						<input type="file" class="filestyle" id="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Your label here." style="color:white;">
 					</li>
@@ -136,7 +140,7 @@
 	<script>
 		(function () {
 			// Create a CM instance
-			var ed2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+			var ed = CodeMirror.fromTextArea(document.getElementById("code2"), {
 				lineNumbers: true,
 			});
 
@@ -161,9 +165,33 @@
 				document.getElementById("wrap2").style.zIndex = "1"
 			});
 
+			
+
 
 		});
+	</script>
+	<script>
+			function myFunction() {
 
+				if (document.getElementById("wrap1").style.visibility == "visible") {
+					var ed = CodeMirror.fromTextArea(document.getElementById("code"), {
+						lineNumbers: true,
+					});
+					ed.setValue("");
+					ed.clearHistory();
+					ed.clearGutter();
+				}
+				else {
+					var ed = CodeMirror.fromTextArea(document.getElementById("code2"), {
+						lineNumbers: true,
+					});
+					ed.setValue("");
+					ed.clearHistory();
+					ed.clearGutter();
+
+				}
+			
+		}
 	</script>
 </body>
 </html>
